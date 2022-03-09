@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_example/core/constants/environment.dart';
+import 'package:flutter_example/core/constants/http_client_config.dart';
 import 'package:flutter_example/core/errors/client_exception.dart';
 import 'package:flutter_example/core/errors/server_exception.dart';
 import 'http_client.dart';
