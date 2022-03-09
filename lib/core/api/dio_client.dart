@@ -8,9 +8,14 @@ import 'http_response.dart';
 class DioClient implements IHttpClient {
   final Map<String, dynamic>? _headers;
   final String _serverUrl;
-  const DioClient({Map<String, dynamic>? headers, required String serverUrl})
-      : _headers = headers,
+
+  const DioClient({
+    final Map<String, dynamic>? headers,
+    required final String serverUrl,
+  })  : _headers = headers,
         _serverUrl = serverUrl;
+
+  static Dio client = Dio();
 
   Future<HttpResponse> _checkResponse(Response response) async {
     if (response.statusCode! >= 500) {
@@ -32,7 +37,7 @@ class DioClient implements IHttpClient {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? params,
   }) async {
-    final Response response = await Dio()
+    final Response response = await client
         .get(
           _serverUrl + path,
           queryParameters: params,
@@ -49,7 +54,7 @@ class DioClient implements IHttpClient {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? params,
   }) async {
-    final Response response = await Dio()
+    final Response response = await client
         .post(
           _serverUrl + path,
           queryParameters: params,
@@ -67,7 +72,7 @@ class DioClient implements IHttpClient {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? params,
   }) async {
-    final Response response = await Dio()
+    final Response response = await client
         .patch(
           _serverUrl + path,
           queryParameters: params,
@@ -85,7 +90,7 @@ class DioClient implements IHttpClient {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? params,
   }) async {
-    final Response response = await Dio()
+    final Response response = await client
         .delete(
           _serverUrl + path,
           queryParameters: params,
