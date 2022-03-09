@@ -24,9 +24,14 @@ dependencies:
   flutter_bloc: ^8.0.1
   bloc_concurrency: ^0.2.0
 
+  # Storage
+  shared_preferences: ^2.0.13
+
   # Network
   dio: ^4.0.0
   
+  #UI
+  animated_theme_switcher: "^2.0.1"
   
   cupertino_icons: ^1.0.2
 
